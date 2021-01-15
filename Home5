@@ -1,0 +1,51 @@
+package org.geekbrein;
+
+
+import java.util.Scanner;
+
+class Employee {
+    // это поля класса
+    String name; //ФИО
+    String position; //должность
+    String email; //емейл
+    String phone_number; //номер телефона
+    int salary; //зарплата
+    int age; //возраст
+
+    // это конструктор
+    public Employee(String name, String position, String email, String phone_number, int salary, int age) {
+        this.name = name;
+        this.position = position;
+        this.email = email;
+        this.phone_number = phone_number;
+        this.salary = salary;
+        this.age = age;
+    }
+
+    // это переопределенный метод
+    @Override
+    public String toString(){
+        return String.format("Имя: %s \tДолжность: %s \nEmail: %s \t Номер телефона: %s \n Зарплата: %d \t Возраст: %d \n",
+                name, position, email, phone_number, salary, age);}
+
+    // это метод вывода в консоль (как по заданию)
+    public void print(){
+        System.out.println(this);
+    }
+
+
+    public static void main(String[] args)  {
+
+        Employee[] persArray = new Employee[5];
+        persArray[0] = new Employee("Илон Маск", "Директор", "Ilon@mailbox.com", "8923115677", 300000, 35);
+        persArray[1] = new Employee("Дональ Трамп", "Зам.Директора", "Donalt@mailbox.com", "892615678", 250000, 61);
+        persArray[2] = new Employee("Цукерберг Марк", "Engineer", "Zuckerberg@mailbox.com", "892417876", 200000, 33);
+        persArray[3] = new Employee("Греф Герман", "Бухгалтер", "Gref@mailbox.com", "892317899", 150000, 57);
+        persArray[4] = new Employee("Дуров Павел", "Программист", "Durov@mailbox.com", "8927195647", 100000, 34);
+
+        // если у объекта в ячейке i поле age > 40, то у него вызывается метод print()
+        for (int i=0; i < persArray.length; i++)
+            if (persArray[i].age > 40) persArray[i].print();
+
+    }
+}
